@@ -40,7 +40,10 @@ def update_pmesh(obj, pos, vel, emitters, colors):
         me.vertices.foreach_set('co', pos)
 
     for attr in me.attributes:
-        me.attributes.remove(attr)
+        try:
+            me.attributes.remove(attr)
+        except RuntimeError:
+            pass
 
     if len(emitters) > 1:
         emt_attr = me.attributes.new('ti_emitter', 'INT', 'POINT')
