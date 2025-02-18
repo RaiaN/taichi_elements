@@ -1205,5 +1205,5 @@ class MPMSolver:
         np_color = np.ndarray((self.n_particles[None]), dtype=np.uint32)
         self.copy_dynamic(np_color, self.color)
         data = np.hstack([np_x, (np_color[:, None]).view(np.float32)])
-        from mesh_io import write_point_cloud
+        from engine.mesh_io import write_point_cloud
         write_point_cloud(fn, data)
